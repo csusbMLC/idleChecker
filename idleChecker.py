@@ -5,8 +5,10 @@ import os
 import tkinter as tk
 from tkinter import messagebox
 
-idle_threshold = timedelta(seconds=5)  # Set the idle threshold to 5 minutes
-warning_threshold = timedelta(seconds=4)  # Set the warning threshold to 4 minutes
+idle_minutes = 15
+warning_minutes = 13
+idle_threshold = timedelta(minutes=idle_minutes)  # Set the idle threshold to 5 minutes
+warning_threshold = timedelta(minutes=warning_minutes)  # Set the warning threshold to 4 minutes
 last_activity_time = datetime.now()
 warning_shown = False
 
@@ -28,7 +30,7 @@ def show_warning_popup():
     def popup():
         root = tk.Tk()
         root.withdraw()  # Hide the root window
-        messagebox.showwarning("Inactivity Warning", "You will be logged out in 1 minute due to inactivity.")
+        messagebox.showwarning("Inactivity Warning", "You will be logged out in 2 minutes due to inactivity.")
         root.destroy()
     
     popup_thread = threading.Thread(target=popup)
@@ -37,6 +39,7 @@ def show_warning_popup():
 def log_out_user():
     # For Windows, use the shutdown command with the /l flag to log out
     if os.name == 'nt':
+        # logout user
         os.system('shutdown /l')
     # For Linux, use the logout command (this may vary depending on the environment)
     elif os.name == 'posix':
