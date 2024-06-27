@@ -34,7 +34,7 @@ This Python script monitors user activity (keyboard and mouse) and logs out the 
 3. **Convert the Script to an Executable Using PyInstaller:**
 
     ```sh
-    pyinstaller --onefile --noconsole your_script_name.py
+    pyinstaller --onefile --noconsole idleChecker.py
     ```
 
 ## Usage
@@ -43,12 +43,12 @@ This Python script monitors user activity (keyboard and mouse) and logs out the 
 
     - For Windows:
         ```sh
-        your_script_name.exe
+        idleChecker.exe
         ```
 
     - For Linux:
         ```sh
-        ./your_script_name
+        ./idleChecker
         ```
 
 2. **Behavior:**
